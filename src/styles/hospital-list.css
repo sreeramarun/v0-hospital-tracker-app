@@ -1,0 +1,101 @@
+.hospital-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.hospital-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.hospital-item:hover {
+  background-color: #f9fafb;
+}
+
+.hospital-item.selected {
+  background-color: #eff6ff;
+  border-left: 4px solid #667eea;
+}
+
+.hospital-status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hospital-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hospital-info h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hospital-location {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.status-available {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-busy {
+  background-color: #fed7aa;
+  color: #92400e;
+}
+
+.status-full {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.hospital-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.hospital-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hospital-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.hospital-list::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
