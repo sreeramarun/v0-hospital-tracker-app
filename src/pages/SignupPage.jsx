@@ -1,20 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
 import "../styles/auth.css"
 
-export default function SignupPage() {
+export default function Signup({ onSignup, onSwitchToLogin }) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
-  const { signup } = useAuth()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setError("")
     setLoading(true)
@@ -31,10 +27,8 @@ export default function SignupPage() {
       return
     }
 
-    const success = signup(name, email, password)
-    if (success) {
-      navigate("/dashboard")
-    } else {
+    const success = onSignup(name, email, password)
+    if (!success) {
       setError("Email already exists")
     }
     setLoading(false)
@@ -95,9 +89,9 @@ export default function SignupPage() {
         <div className="auth-footer">
           <p>
             Already have an account?{" "}
-            <Link to="/" className="link">
+            <button type="button" onClick={onSwitchToLogin} className="link-button">
               Sign in
-            </Link>
+            </button>
           </p>
         </div>
       </div>

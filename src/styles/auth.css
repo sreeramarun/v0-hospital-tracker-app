@@ -115,3 +115,22 @@
 .link:hover {
   text-decoration: underline;
 }
+
+/* Add styles for link-button to replace react-router Link component */
+.link-button {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+
+.link-button:hover {
+  color: #5568d3;
+  text-decoration: underline;
+}

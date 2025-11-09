@@ -1,23 +1,14 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext"
 import MapComponent from "../components/MapComponent"
 import HospitalList from "../components/HospitalList"
 import { getHospitals } from "../data/hospitals"
 import "../styles/dashboard.css"
 
-export default function Dashboard() {
-  const { user, logout } = useAuth()
-  const navigate = useNavigate()
+export default function Dashboard({ user, onLogout }) {
   const [selectedHospital, setSelectedHospital] = useState(null)
   const hospitals = useMemo(() => getHospitals(), [])
-
-  const handleLogout = () => {
-    logout()
-    navigate("/")
-  }
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -39,7 +30,7 @@ export default function Dashboard() {
           <h1>Hospital Emergency Tracker</h1>
           <p>Welcome, {user?.name}</p>
         </div>
-        <button onClick={handleLogout} className="btn btn-secondary">
+        <button onClick={onLogout} className="btn btn-secondary">
           Logout
         </button>
       </header>
